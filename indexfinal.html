@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Color RGB</title>
+    <!-- Enlaces a los archivos CSS y JavaScript de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        #colorDiv {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(0, 0, 0); /* Color inicial (negro) */
+            transition: background-color 0.3s; /* Animación de transición */
+        }
+        /* Estilos para el pie de página */
+        footer {
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Mi Página Cambio de color RGB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <h1 class="mb-4">Cambio de Color</h1>
+        <div class="form-group">
+            <label for="redRange">Rojo:</label>
+            <input type="range" class="form-control-range" id="redRange" min="0" max="255" value="0">
+        </div>
+        <div class="form-group">
+            <label for="greenRange">Verde:</label>
+            <input type="range" class="form-control-range" id="greenRange" min="0" max="255" value="0">
+        </div>
+        <div class="form-group">
+            <label for="blueRange">Azul:</label>
+            <input type="range" class="form-control-range" id="blueRange" min="0" max="255" value="0">
+        </div>
+        <div id="colorDiv"></div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Mi Página. Todos los derechos reservados Castillo Perez Edgar Jair 21200105.</p>
+        </div>
+    </footer>
+
+    <script>
+        const redRange = document.getElementById('redRange');
+        const greenRange = document.getElementById('greenRange');
+        const blueRange = document.getElementById('blueRange');
+        const colorDiv = document.getElementById('colorDiv');
+
+        function updateColor() {
+            const red = redRange.value;
+            const green = greenRange.value;
+            const blue = blueRange.value;
+
+            colorDiv.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+        }
+
+        redRange.addEventListener('input', updateColor);
+        greenRange.addEventListener('input', updateColor);
+        blueRange.addEventListener('input', updateColor);
+    </script>
+</body>
+</html>
